@@ -2,20 +2,25 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 
 def run_game():
     '''初始化游戏并创建一个屏幕对象'''
-    pygame.init()#初始化背景设置
+    # 初始化背景设置
+    pygame.init()
 
     ai_settings = Settings()
 
-    # 调用pygame.display.set_mode()创建一个名为screen的显示窗口
+    # 调用 pygame.display.set_mode()创建一个名为screen的显示窗口
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
 
     # 窗口标题
     pygame.display.set_caption("外星人入侵")
+
+    # 创建一艘飞船
+    ship = Ship(screen)
 
     '''开始游戏主循环'''
     while True:
@@ -27,6 +32,7 @@ def run_game():
 
         '''每次循环时都重绘屏幕'''
         screen.fill(ai_settings.bg_color)
+        ship.blitme()
 
         '''让最近绘制的屏幕可见
             每次执行while循环时都绘制一个空屏幕并擦去旧屏幕，使得只有新屏幕可见，
