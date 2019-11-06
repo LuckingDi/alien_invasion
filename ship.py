@@ -31,22 +31,20 @@ class Ship():
 
     def update(self):
         '''根据移动标志调整飞船的位置'''
+        # 右移的距离和飞船的右移不能大于游戏界面的右边界
         if self.moving_right and self.rect.right < self.screen_rect.right:
+            # 不大于游戏右边界 就加 self.ai_settings.ship_speed_factor
             self.center1 += self.ai_settings.ship_speed_factor
         if self.moving_left and self.rect.left > self.screen_rect.left:
             self.center1 -= self.ai_settings.ship_speed_factor
-        if self.moving_up and self.rect.height < self.screen_rect.top:
+        if self.moving_up and self.rect.top > self.screen_rect.top:
             self.center2 -= self.ai_settings.ship_speed_factor
-        if self.moving_down and self.rect.bottom > 0:
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.center2 += self.ai_settings.ship_speed_factor
-
-        #
 
         # 根据self.center更新rect对象
         self.rect.centerx = self.center1
         self.rect.centery = self.center2
-
-
 
     def blitme(self):
         '''在指定位置绘制飞机'''
