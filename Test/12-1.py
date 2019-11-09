@@ -1,22 +1,22 @@
-import sys
-
 import pygame
-from file_12_3 as file
+import file2 as file
+
 
 def run_game():
     pygame.init()
     screen = pygame.display.set_mode((1600, 800))
 
     pygame.display.set_caption("Test")
-    image1 = image(screen)
+    # 定义背景颜色
+
+    image1 = file.Ship(screen)
 
     while True:
+        image1.bj()
+        image1.moving()
+        image1.event_down()
+        image1.blit()
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-        screen.fill((20, 178, 251))
-        image1.image
         pygame.display.flip()
 
 
