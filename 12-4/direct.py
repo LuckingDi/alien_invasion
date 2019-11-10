@@ -21,6 +21,4 @@ def KeyDown():
             print(event.key)
 
 
-
-
 run_game()
