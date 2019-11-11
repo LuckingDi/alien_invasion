@@ -6,7 +6,7 @@ class Settings():
         self.screen_height = 750
         # 游戏画面的初始颜色
         self.bg_color = (255, 255, 255)
-        # 飞船的设置
+        # 飞船速度的设置
         self.ship_speed_factor = 1.5
         # 子弹速度
         self.bullet_speed_factor = 1
