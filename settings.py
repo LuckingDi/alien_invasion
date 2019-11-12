@@ -16,4 +16,7 @@ class Settings():
         self.bullet_height = 15
         # 子弹颜色（深灰色）
         self.bullet_color = 60, 60, 60
+        # 限制未消失的子弹为3颗
+        self.bullet_allowed = 3
+
 

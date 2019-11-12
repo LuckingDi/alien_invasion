@@ -2,7 +2,7 @@ import pygame
 from pygame.sprite import Sprite
 
 
-class Buller(Sprite):
+class Bullet(Sprite):
     '''一个对飞船发射的子弹进行管理的类'''
 
     def __init__(self, ai_settings, screen, ship):
@@ -17,7 +17,7 @@ class Buller(Sprite):
         # 设置子弹的centerx是飞船的centerx
         self.rect.centerx = ship.rect.centerx
         self.rect.centery = ship.rect.centery
-
+        # 设置子弹的top为飞船的top
         self.rect.top = ship.rect.top
 
         # 存储用小数表示的子弹设置
@@ -29,7 +29,7 @@ class Buller(Sprite):
 
     def update(self):
         '''向上移动子弹'''
-        # 更新表示子弹位置的小数值,子弹发射出去，y坐标将不断减小，因此更新子弹的位置，从self.y中减去self,speed_factor的值
+        # 更新表示子弹位置的小数值,子弹发射出去，y坐标将不断减小，因此更新子弹的位置，从self.y中减去self.speed_factor的值
         self.y -= self.speed_factor
         # 更新表示子弹的rect的位置
         self.rect.y = self.y
