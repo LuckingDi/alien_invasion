@@ -24,3 +24,4 @@ class Alien(Sprite):
     def blitme(self):
         '''在指定位置绘制外星人'''
         self.screen.blit(self.image, self.rect)
+
