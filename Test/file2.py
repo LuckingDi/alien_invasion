@@ -1,20 +1,34 @@
 import sys
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship():
+class Ship(Sprite):
 
-    def __init__(self, screen):
+    def __init__(self, screen, bulltes):
+        super().__init__()
         self.screen = screen
+        self.bullets = bulltes
 
         self.image = pygame.image.load('../images/2.bmp')
+        self.bullet = pygame.image.load('../images/21.bmp')
         # 定义图片的x/y轴
         self.image_rect = self.image.get_rect()
+        # 定义子弹的x/y轴
+        self.bullet_rect = self.bullet.get_rect()
         # 定义界面的x/y轴
         self.screen_rect = self.screen.get_rect()
         # 定义图片的位置在游戏界面的中间
         self.image_rect.centerx = self.screen_rect.centerx
         self.image_rect.centery = self.screen_rect.centery
+        # 设置子弹的位置
+        self.bullet_rect.centerx = self.image_rect.centerx
+        self.bullet_rect.centery = self.image_rect.centery
+        self.bullet_rect.top = self.image_rect.top
+        # 存储小数表示子弹的设置
+        self.y = float(self.bullet_rect.y)
+        # 子弹的速度
+        self.bullet_speed = 1.5
         # 判断是否移动的属性
         self.moving_right = False
         self.moving_left = False
@@ -44,6 +58,10 @@ class Ship():
             self.moving_up = True
         elif event.key == pygame.K_DOWN:
             self.moving_down = True
+        elif event.key == pygame.K_SPACE:
+            self.fire_bullet()
+        elif event.key == pygame.K_q:
+            sys.exit()
 
     def checks_keyup_event(self, event):
         '''响应松开按键'''
@@ -84,4 +102,27 @@ class Ship():
                 self.checks_keyup_event(event)
                 print(event.key)
 
+    def update(self):
+        '''向上移动子弹'''
+        self.y -= self.bullet_speed
+        self.bullet_rect.y = self.y
 
+    def draw_bullet(self):
+        '''在屏幕上绘制子弹'''
+        w = self.screen.blit(self.bullet, self.bullet_rect)
+        return w
+
+    def update_bullets(self):
+        #更新子弹的位置
+        self.update()
+        # 删除已消失的子弹
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottem < 0:
+                self.bullets.remove(bullet)
+        # 打印出编组中目前的子弹数量
+        print(len(self.bullets))
+
+    def fire_bullet(self):
+
+        now_bullet = self.draw_bullet()
+        self.bullets.add(now_bullet)
