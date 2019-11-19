@@ -2,7 +2,7 @@ import sys
 import pygame
 from pygame.sprite import Group
 from xx import Settings
-import Function as fg
+from xingxing import Function as fg
 
 
 def Run():
@@ -44,8 +44,6 @@ def Run():
         xxs.draw(screen)
         pygame.display.flip()
         fg.create_fleet(ai_settings, screen, xxs)
-
-
 
 
 Run()

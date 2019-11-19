@@ -18,5 +18,11 @@ class Settings():
         self.bullet_color = 60, 60, 60
         # 限制未消失的子弹为3颗
         self.bullet_allowed = 3
+        # 外星人设置
+        self.alien_speed = 0.5
+        # 向下移动的距离
+        self.fleet_drop_speed = 10
+        # fleet_direction为1表示向右移动，为-1表示向左移动
+        self.fleet_direction = 1
 
 

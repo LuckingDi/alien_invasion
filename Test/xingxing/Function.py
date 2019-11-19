@@ -1,4 +1,5 @@
 from xx import Settings
+from random import random
 
 
 def chenge_bg_color(event=''):

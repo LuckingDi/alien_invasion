@@ -36,6 +36,8 @@ def run_game():
         ship.update()
         # 更新子弹位置，并删除已消失的子弹
         gf.update_bullets(bullets)
+        # 更新外星人的位置
+        gf.update_aliens(aliens)
         # 更新屏幕方法
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
