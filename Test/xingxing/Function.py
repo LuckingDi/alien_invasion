@@ -36,10 +36,13 @@ def create_fleet(ai_settings, screen, xxs):
     xx = Settings(screen)
     number_xxs_x = get_number_xxs_x(ai_settings, xx.rect.width)
     row_number = get_number_xxs_y(ai_settings, xx.rect.height)
-    random_number = randint(-10, 10)
+    # random_number = randint(-10, 10)
 
     for row_number in range(row_number):
 
         for number_xxs in range(number_xxs_x):
 
-            create_xx(screen, xxs, random_number, row_number, )
+            create_xx(screen, xxs, number_xxs, row_number, )
+
+
+
