@@ -11,7 +11,7 @@ class Settings():
         # 子弹速度
         self.bullet_speed_factor = 1
         # 子弹宽度
-        self.bullet_width = 3
+        self.bullet_width = 3000
         # 子弹长度
         self.bullet_height = 15
         # 子弹颜色（深灰色）

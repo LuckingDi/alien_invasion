@@ -45,4 +45,6 @@ def create_fleet(ai_settings, screen, xxs):
             create_xx(screen, xxs, number_xxs, row_number, )
 
 
-
+def update_xxs(xxs):
+    '''更新外星人群中所有外星人的位置'''
+    xxs.update()

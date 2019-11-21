@@ -42,8 +42,10 @@ def Run():
                     color1 = fg.chenge_bg_color(1)
                     screen.fill(color1)
         xxs.draw(screen)
-        pygame.display.flip()
+        fg.update_xxs(xxs)
         fg.create_fleet(ai_settings, screen, xxs)
+        pygame.display.flip()
+
 
 
 
