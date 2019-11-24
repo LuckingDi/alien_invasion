@@ -11,7 +11,7 @@ class Settings():
         # 子弹速度
         self.bullet_speed_factor = 1
         # 子弹宽度
-        self.bullet_width = 3
+        self.bullet_width = 3000
         # 子弹长度
         self.bullet_height = 15
         # 子弹颜色（深灰色）
@@ -23,6 +23,10 @@ class Settings():
         # 向下移动的距离
         self.fleet_drop_speed = 10
         # fleet_direction为1表示向右移动，为-1表示向左移动
+        self.alien_speed_factor = 0.5
+        # 外星人触碰到边界下移的距离
+        self.fleet_drop_speed = 10
+        # fleet_direction为1表示向右移，为-1表示向左移
         self.fleet_direction = 1
 
 

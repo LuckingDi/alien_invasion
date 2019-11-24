@@ -1,5 +1,9 @@
 from xx import Settings
+<<<<<<< HEAD:Test/xingxing/Function.py
 from random import random
+=======
+from random import randint
+>>>>>>> 64193db9146a9b208b5ce854a47275de0835281f:Test/Function.py
 
 
 def chenge_bg_color(event=''):
@@ -36,9 +40,15 @@ def create_fleet(ai_settings, screen, xxs):
     xx = Settings(screen)
     number_xxs_x = get_number_xxs_x(ai_settings, xx.rect.width)
     row_number = get_number_xxs_y(ai_settings, xx.rect.height)
+    # random_number = randint(-10, 10)
 
     for row_number in range(row_number):
 
         for number_xxs in range(number_xxs_x):
 
             create_xx(screen, xxs, number_xxs, row_number, )
+
+
+def update_xxs(xxs):
+    '''更新外星人群中所有外星人的位置'''
+    xxs.update()
