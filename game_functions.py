@@ -142,29 +142,12 @@ def create_fleet(ai_settings, screen, ship, aliens ):
             create_alien(ai_settings, screen, aliens, alien_number, row_number)
 
 
-def update_aliens(aliens):
-    '''更新外星人群中所有外星人的位置'''
-    aliens.update()
-
-
-def check_fleet_edges(ai_settings, aliens):
-    '''有外星人到达边境时采取的措施'''
-
 def check_fleet_edges(ai_settings, aliens):
     '''有外星人到达边缘时采取想应的措施'''
-
     for alien in aliens.sprites():
         if alien.check_edges():
             change_fleet_direction(ai_settings, aliens)
             break
-
-
-def change_fleet_direction(ai_settings, aliens):
-    '''将外星人整体向下移，并改变他们的方向'''
-    for alien in aliens.sprites():
-        alien.rect.y += ai_settings.fleet_drop_speed
-
-    ai_settings.fleet_direction *= -1
 
 
 def change_fleet_direction(ai_settings, aliens):
@@ -182,6 +165,7 @@ def update_aliens(ai_settings, ship, aliens):
     # 检测外星人和飞船之间的碰撞
     if pygame.sprite.spritecollideany(ship, aliens):
         print('ship hit!!!')
+
 
 
 

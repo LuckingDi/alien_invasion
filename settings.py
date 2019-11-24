@@ -19,10 +19,6 @@ class Settings():
         # 限制未消失的子弹为3颗
         self.bullet_allowed = 3
         # 外星人设置
-        self.alien_speed = 0.5
-        # 向下移动的距离
-        self.fleet_drop_speed = 10
-        # fleet_direction为1表示向右移动，为-1表示向左移动
         self.alien_speed_factor = 0.5
         # 外星人触碰到边界下移的距离
         self.fleet_drop_speed = 10

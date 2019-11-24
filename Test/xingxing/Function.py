@@ -1,9 +1,5 @@
 from xx import Settings
-<<<<<<< HEAD:Test/xingxing/Function.py
-from random import random
-=======
 from random import randint
->>>>>>> 64193db9146a9b208b5ce854a47275de0835281f:Test/Function.py
 
 
 def chenge_bg_color(event=''):
