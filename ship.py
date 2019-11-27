@@ -51,4 +51,5 @@ class Ship():
         self.screen.blit(self.image, self.rect)
 
     def center_ship(self):
-        self.center = self.screen_rect.centerx
+        self.rect.centerx = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
