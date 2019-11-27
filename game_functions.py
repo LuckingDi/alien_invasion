@@ -3,6 +3,7 @@ import sys
 import pygame
 from bullet import Bullet
 from alien import Alien
+from time import sleep
 
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
@@ -126,7 +127,7 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number):
     aliens.add(alien)
 
 
-def create_fleet(ai_settings, screen, ship, aliens ):
+def create_fleet(ai_settings, screen, ship, aliens):
     '''创建外星人群'''
     # 创建一个外星人，并计算一行和容纳多少外星人
     # 外星人间距为外星人宽度
@@ -157,14 +158,31 @@ def change_fleet_direction(ai_settings, aliens):
     ai_settings.fleet_direction *= -1
 
 
-def update_aliens(ai_settings, ship, aliens):
+def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
+    '''响应被外星人撞到的飞船'''
+    # 将ships_left减1
+    stats.ship_left -= 1
+
+    # 清空外星人列表和子弹列表
+    aliens.empty()
+    bullets.empty()
+
+    # 创建一群新的外星人，并将飞船放到屏幕低端中央
+    create_fleet(ai_settings, screen, ship, aliens)
+    ship.center_ship()
+
+    # 暂停
+    sleep(0.5)
+
+
+def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
     '''检查是否有外星人位于屏幕边缘，并更新整群外星人的位置'''
     check_fleet_edges(ai_settings, aliens)
     aliens.update()
 
     # 检测外星人和飞船之间的碰撞
     if pygame.sprite.spritecollideany(ship, aliens):
-        print('ship hit!!!')
+        ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
 
 
 
